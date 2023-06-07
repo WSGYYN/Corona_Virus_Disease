@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CvdDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminAcc" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdminPaword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Acount" Type="int" />
+          <Property Name="Atype" Type="nvarchar" MaxLength="50" />
+          <Property Name="Warehousing" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TID" Type="int" />
+          <Property Name="Classname" Type="nvarchar" MaxLength="50" />
+          <Property Name="department" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Detection">
+          <Key>
+            <PropertyRef Name="DID" />
+          </Key>
+          <Property Name="DID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dtime" Type="datetime" />
+          <Property Name="Dresult" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuID" Type="int" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DRID" />
+          </Key>
+          <Property Name="DRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Drname" Type="nvarchar" MaxLength="50" />
+          <Property Name="DrAcc" Type="nvarchar" MaxLength="50" />
+          <Property Name="DrPassword" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StuID" Type="int" />
+          <Property Name="LstartTime" Type="datetime" />
+          <Property Name="LoverTime" Type="datetime" />
+          <Property Name="Lreason" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lorschool" Type="int" />
+          <Property Name="Lview" Type="nvarchar" MaxLength="50" />
+          <Property Name="TID" Type="int" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="NID" />
+          </Key>
+          <Property Name="NID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ntitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="NContent" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReleTime" Type="datetime" />
+          <Property Name="Npic" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StuID" />
+          </Key>
+          <Property Name="StuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StuAcc" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="StuClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TAcc" Type="nvarchar" MaxLength="50" />
+          <Property Name="TName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="TBM" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AID" Type="int" />
+          <Property Name="Apeople" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Atime" Type="datetime" />
+          <Property Name="Uto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="VID" />
+          </Key>
+          <Property Name="VID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StuID" Type="int" />
+          <Property Name="Hot" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vreason" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vtime" Type="datetime" />
+          <Property Name="DRID" Type="int" />
+        </EntityType>
+        <EntityContainer Name="CvdDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detection" EntityType="Self.Detection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CvdDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdminPaword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Acount" Type="Int32" />
+          <Property Name="Atype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Warehousing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="CID" />
+          </Key>
+          <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TID" Type="Int32" />
+          <Property Name="Classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Detection">
+          <Key>
+            <PropertyRef Name="DID" />
+          </Key>
+          <Property Name="DID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dtime" Type="DateTime" Precision="3" />
+          <Property Name="Dresult" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DRID" />
+          </Key>
+          <Property Name="DRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Drname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DrAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DrPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="LID" />
+          </Key>
+          <Property Name="LID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StuID" Type="Int32" />
+          <Property Name="LstartTime" Type="DateTime" Precision="3" />
+          <Property Name="LoverTime" Type="DateTime" Precision="3" />
+          <Property Name="Lreason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lorschool" Type="Int32" />
+          <Property Name="Lview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Notice">
+          <Key>
+            <PropertyRef Name="NID" />
+          </Key>
+          <Property Name="NID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ntitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReleTime" Type="DateTime" Precision="3" />
+          <Property Name="Npic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StuID" />
+          </Key>
+          <Property Name="StuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StuAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StuClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TBM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AID" Type="Int32" />
+          <Property Name="Apeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Atime" Type="DateTime" Precision="3" />
+          <Property Name="Uto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Visit">
+          <Key>
+            <PropertyRef Name="VID" />
+          </Key>
+          <Property Name="VID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StuID" Type="Int32" />
+          <Property Name="Hot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vreason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vtime" Type="DateTime" Precision="3" />
+          <Property Name="DRID" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="CvdDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Article" EntityType="Self.Article" />
+          <EntitySet Name="Class" EntityType="Self.Class" />
+          <EntitySet Name="Detection" EntityType="Self.Detection" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+          <EntitySet Name="Leave" EntityType="Self.Leave" />
+          <EntitySet Name="Notice" EntityType="Self.Notice" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Visit" EntityType="Self.Visit" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CvdDBModelStoreContainer" CdmEntityContainer="CvdDBEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="CvdDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminAcc" ColumnName="AdminAcc" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminPaword" ColumnName="AdminPaword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Article">
+            <EntityTypeMapping TypeName="CvdDBModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="Apic" ColumnName="Apic" />
+                <ScalarProperty Name="Aname" ColumnName="Aname" />
+                <ScalarProperty Name="Acount" ColumnName="Acount" />
+                <ScalarProperty Name="Atype" ColumnName="Atype" />
+                <ScalarProperty Name="Warehousing" ColumnName="Warehousing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Class">
+            <EntityTypeMapping TypeName="CvdDBModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="Classname" ColumnName="Classname" />
+                <ScalarProperty Name="department" ColumnName="department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detection">
+            <EntityTypeMapping TypeName="CvdDBModel.Detection">
+              <MappingFragment StoreEntitySet="Detection">
+                <ScalarProperty Name="DID" ColumnName="DID" />
+                <ScalarProperty Name="Dtime" ColumnName="Dtime" />
+                <ScalarProperty Name="Dresult" ColumnName="Dresult" />
+                <ScalarProperty Name="StuID" ColumnName="StuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctor">
+            <EntityTypeMapping TypeName="CvdDBModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="DRID" ColumnName="DRID" />
+                <ScalarProperty Name="Drname" ColumnName="Drname" />
+                <ScalarProperty Name="DrAcc" ColumnName="DrAcc" />
+                <ScalarProperty Name="DrPassword" ColumnName="DrPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leave">
+            <EntityTypeMapping TypeName="CvdDBModel.Leave">
+              <MappingFragment StoreEntitySet="Leave">
+                <ScalarProperty Name="LID" ColumnName="LID" />
+                <ScalarProperty Name="StuID" ColumnName="StuID" />
+                <ScalarProperty Name="LstartTime" ColumnName="LstartTime" />
+                <ScalarProperty Name="LoverTime" ColumnName="LoverTime" />
+                <ScalarProperty Name="Lreason" ColumnName="Lreason" />
+                <ScalarProperty Name="Lorschool" ColumnName="Lorschool" />
+                <ScalarProperty Name="Lview" ColumnName="Lview" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notice">
+            <EntityTypeMapping TypeName="CvdDBModel.Notice">
+              <MappingFragment StoreEntitySet="Notice">
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="Ntitle" ColumnName="Ntitle" />
+                <ScalarProperty Name="NContent" ColumnName="NContent" />
+                <ScalarProperty Name="ReleTime" ColumnName="ReleTime" />
+                <ScalarProperty Name="Npic" ColumnName="Npic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="CvdDBModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StuID" ColumnName="StuID" />
+                <ScalarProperty Name="StuAcc" ColumnName="StuAcc" />
+                <ScalarProperty Name="StuName" ColumnName="StuName" />
+                <ScalarProperty Name="StuPassword" ColumnName="StuPassword" />
+                <ScalarProperty Name="StuClass" ColumnName="StuClass" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teacher">
+            <EntityTypeMapping TypeName="CvdDBModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="TAcc" ColumnName="TAcc" />
+                <ScalarProperty Name="TName" ColumnName="TName" />
+                <ScalarProperty Name="TPassword" ColumnName="TPassword" />
+                <ScalarProperty Name="TBM" ColumnName="TBM" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="CvdDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="Apeople" ColumnName="Apeople" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Atime" ColumnName="Atime" />
+                <ScalarProperty Name="Uto" ColumnName="Uto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visit">
+            <EntityTypeMapping TypeName="CvdDBModel.Visit">
+              <MappingFragment StoreEntitySet="Visit">
+                <ScalarProperty Name="VID" ColumnName="VID" />
+                <ScalarProperty Name="StuID" ColumnName="StuID" />
+                <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="Vreason" ColumnName="Vreason" />
+                <ScalarProperty Name="Vtime" ColumnName="Vtime" />
+                <ScalarProperty Name="DRID" ColumnName="DRID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

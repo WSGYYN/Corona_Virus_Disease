@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CvdDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPaword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Apic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Acount" Type="Int32" />
+    <Property Name="Atype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Warehousing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TID" Type="Int32" />
+    <Property Name="Classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Detection">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Dtime" Type="DateTime" Precision="3" />
+    <Property Name="Dresult" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StuID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DRID" />
+    </Key>
+    <Property Name="DRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Drname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DrAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DrPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="LID" />
+    </Key>
+    <Property Name="LID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StuID" Type="Int32" />
+    <Property Name="LstartTime" Type="DateTime" Precision="3" />
+    <Property Name="LoverTime" Type="DateTime" Precision="3" />
+    <Property Name="Lreason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lorschool" Type="Int32" />
+    <Property Name="Lview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Notice">
+    <Key>
+      <PropertyRef Name="NID" />
+    </Key>
+    <Property Name="NID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ntitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NContent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReleTime" Type="DateTime" Precision="3" />
+    <Property Name="Npic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StuID" />
+    </Key>
+    <Property Name="StuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StuAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StuPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StuClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TBM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AID" Type="Int32" />
+    <Property Name="Apeople" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Atime" Type="DateTime" Precision="3" />
+    <Property Name="Uto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="VID" />
+    </Key>
+    <Property Name="VID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StuID" Type="Int32" />
+    <Property Name="Hot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vreason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vtime" Type="DateTime" Precision="3" />
+    <Property Name="DRID" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="CvdDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin" EntityType="Self.Admin" />
+    <EntitySet Name="Article" EntityType="Self.Article" />
+    <EntitySet Name="Class" EntityType="Self.Class" />
+    <EntitySet Name="Detection" EntityType="Self.Detection" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" />
+    <EntitySet Name="Leave" EntityType="Self.Leave" />
+    <EntitySet Name="Notice" EntityType="Self.Notice" />
+    <EntitySet Name="Student" EntityType="Self.Student" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="Visit" EntityType="Self.Visit" />
+  </EntityContainer>
+</Schema>

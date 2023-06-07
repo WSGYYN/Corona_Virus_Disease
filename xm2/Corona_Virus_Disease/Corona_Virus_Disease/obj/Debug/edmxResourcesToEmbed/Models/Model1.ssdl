@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CvdDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminAcc" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdminPaword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Apic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Aname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Acount" Type="int" />
+    <Property Name="Atype" Type="nvarchar" MaxLength="50" />
+    <Property Name="Warehousing" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="CID" />
+    </Key>
+    <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TID" Type="int" />
+    <Property Name="Classname" Type="nvarchar" MaxLength="50" />
+    <Property Name="department" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Detection">
+    <Key>
+      <PropertyRef Name="DID" />
+    </Key>
+    <Property Name="DID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dtime" Type="datetime" />
+    <Property Name="Dresult" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuID" Type="int" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DRID" />
+    </Key>
+    <Property Name="DRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Drname" Type="nvarchar" MaxLength="50" />
+    <Property Name="DrAcc" Type="nvarchar" MaxLength="50" />
+    <Property Name="DrPassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="LID" />
+    </Key>
+    <Property Name="LID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StuID" Type="int" />
+    <Property Name="LstartTime" Type="datetime" />
+    <Property Name="LoverTime" Type="datetime" />
+    <Property Name="Lreason" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lorschool" Type="int" />
+    <Property Name="Lview" Type="nvarchar" MaxLength="50" />
+    <Property Name="TID" Type="int" />
+  </EntityType>
+  <EntityType Name="Notice">
+    <Key>
+      <PropertyRef Name="NID" />
+    </Key>
+    <Property Name="NID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ntitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="NContent" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReleTime" Type="datetime" />
+    <Property Name="Npic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StuID" />
+    </Key>
+    <Property Name="StuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StuAcc" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TID" />
+    </Key>
+    <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TAcc" Type="nvarchar" MaxLength="50" />
+    <Property Name="TName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="TBM" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AID" Type="int" />
+    <Property Name="Apeople" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="Atime" Type="datetime" />
+    <Property Name="Uto" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="VID" />
+    </Key>
+    <Property Name="VID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StuID" Type="int" />
+    <Property Name="Hot" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vreason" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vtime" Type="datetime" />
+    <Property Name="DRID" Type="int" />
+  </EntityType>
+  <EntityContainer Name="CvdDBModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Detection" EntityType="Self.Detection" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Leave" EntityType="Self.Leave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notice" EntityType="Self.Notice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

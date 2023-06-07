@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CvdDBModelStoreContainer" CdmEntityContainer="CvdDBEntities">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="CvdDBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminAcc" ColumnName="AdminAcc" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="AdminPaword" ColumnName="AdminPaword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Article">
+      <EntityTypeMapping TypeName="CvdDBModel.Article">
+        <MappingFragment StoreEntitySet="Article">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="Apic" ColumnName="Apic" />
+          <ScalarProperty Name="Aname" ColumnName="Aname" />
+          <ScalarProperty Name="Acount" ColumnName="Acount" />
+          <ScalarProperty Name="Atype" ColumnName="Atype" />
+          <ScalarProperty Name="Warehousing" ColumnName="Warehousing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class">
+      <EntityTypeMapping TypeName="CvdDBModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="Classname" ColumnName="Classname" />
+          <ScalarProperty Name="department" ColumnName="department" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Detection">
+      <EntityTypeMapping TypeName="CvdDBModel.Detection">
+        <MappingFragment StoreEntitySet="Detection">
+          <ScalarProperty Name="DID" ColumnName="DID" />
+          <ScalarProperty Name="Dtime" ColumnName="Dtime" />
+          <ScalarProperty Name="Dresult" ColumnName="Dresult" />
+          <ScalarProperty Name="StuID" ColumnName="StuID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctor">
+      <EntityTypeMapping TypeName="CvdDBModel.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="DRID" ColumnName="DRID" />
+          <ScalarProperty Name="Drname" ColumnName="Drname" />
+          <ScalarProperty Name="DrAcc" ColumnName="DrAcc" />
+          <ScalarProperty Name="DrPassword" ColumnName="DrPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leave">
+      <EntityTypeMapping TypeName="CvdDBModel.Leave">
+        <MappingFragment StoreEntitySet="Leave">
+          <ScalarProperty Name="LID" ColumnName="LID" />
+          <ScalarProperty Name="StuID" ColumnName="StuID" />
+          <ScalarProperty Name="LstartTime" ColumnName="LstartTime" />
+          <ScalarProperty Name="LoverTime" ColumnName="LoverTime" />
+          <ScalarProperty Name="Lreason" ColumnName="Lreason" />
+          <ScalarProperty Name="Lorschool" ColumnName="Lorschool" />
+          <ScalarProperty Name="Lview" ColumnName="Lview" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notice">
+      <EntityTypeMapping TypeName="CvdDBModel.Notice">
+        <MappingFragment StoreEntitySet="Notice">
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="Ntitle" ColumnName="Ntitle" />
+          <ScalarProperty Name="NContent" ColumnName="NContent" />
+          <ScalarProperty Name="ReleTime" ColumnName="ReleTime" />
+          <ScalarProperty Name="Npic" ColumnName="Npic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="CvdDBModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StuID" ColumnName="StuID" />
+          <ScalarProperty Name="StuAcc" ColumnName="StuAcc" />
+          <ScalarProperty Name="StuName" ColumnName="StuName" />
+          <ScalarProperty Name="StuPassword" ColumnName="StuPassword" />
+          <ScalarProperty Name="StuClass" ColumnName="StuClass" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teacher">
+      <EntityTypeMapping TypeName="CvdDBModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="TAcc" ColumnName="TAcc" />
+          <ScalarProperty Name="TName" ColumnName="TName" />
+          <ScalarProperty Name="TPassword" ColumnName="TPassword" />
+          <ScalarProperty Name="TBM" ColumnName="TBM" />
+          <ScalarProperty Name="State" ColumnName="State" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="CvdDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="Apeople" ColumnName="Apeople" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Atime" ColumnName="Atime" />
+          <ScalarProperty Name="Uto" ColumnName="Uto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visit">
+      <EntityTypeMapping TypeName="CvdDBModel.Visit">
+        <MappingFragment StoreEntitySet="Visit">
+          <ScalarProperty Name="VID" ColumnName="VID" />
+          <ScalarProperty Name="StuID" ColumnName="StuID" />
+          <ScalarProperty Name="Hot" ColumnName="Hot" />
+          <ScalarProperty Name="Vreason" ColumnName="Vreason" />
+          <ScalarProperty Name="Vtime" ColumnName="Vtime" />
+          <ScalarProperty Name="DRID" ColumnName="DRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

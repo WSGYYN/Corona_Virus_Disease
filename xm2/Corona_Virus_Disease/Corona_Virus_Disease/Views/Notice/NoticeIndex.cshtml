@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "NoticeIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+
+<div class="row" style="background-color: aliceblue;">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                通知公告
+            </header>
+            <table class="table table-striped border-top" id="sample_1">
+                <thead>
+                    <tr>
+                        <th class="center hidden-phone">序号</th>
+                        <th class="center hidden-phone">通知标题</th>
+                        <th class="center hidden-phone">发布时间</th>
+                        <th class="center hidden-phone">操作</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model as IList<Corona_Virus_Disease.Models.Notice>)
+                    {
+                        <tr class="odd gradeX">
+                            <td class=" hidden-phone">@count</td>
+                            <td class=" hidden-phone">@item.Ntitle</td>
+                            <td class=" hidden-phone">@item.ReleTime</td>
+                            <td class=" hidden-phone">
+                                <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="详情" onclick="redirectToDetails('@item.NID')">
+                                    <i class="fa fa-info-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        count++;
+                    }
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+<script>
+    function redirectToDetails(StuID) {
+        window.location.href = '/Notice/XNotice?id=' + encodeURIComponent(StuID);
+    }
+</script>
+
