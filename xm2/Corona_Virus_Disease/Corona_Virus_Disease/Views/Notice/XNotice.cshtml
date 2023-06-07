@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "XNotice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Notice = Model as Corona_Virus_Disease.Models.Notice;
+}
+<div class="row" style="background-color: aliceblue;">
+    <div class="col-lg-12">
+        <section class="panel">
+            <div class="bio-graph-heading">
+                @Notice.Ntitle
+            </div>
+            <div class="panel-body bio-graph-info">
+                <h1>内容</h1>
+                <div class="row">
+                    <div class="bio-row">
+                        <p>@Notice.NContent</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

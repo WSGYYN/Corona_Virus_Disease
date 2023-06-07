@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "DetectionIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 0;
+}
+<style>
+    .btn{
+        padding:0 0;
+    }
+</style>
+<div class="row" style="background-color: aliceblue;">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                通知公告
+            </header>
+            <table class="table table-striped border-top" id="sample_1">
+                <thead>
+                    <tr>
+                        <th class="center hidden-phone">序号</th>
+                        <th class="center hidden-phone">检测编号</th>
+                        <th class="center hidden-phone">学生姓名</th>
+                        <th class="center hidden-phone">班级</th>
+                        <th class="center hidden-phone">老师</th>
+                        <th class="center hidden-phone">检测结果</th>
+                        <th class="center hidden-phone">检测时间</th>
+                        <th class="center hidden-phone">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="odd gradeX">
+                        <td class=" hidden-phone">1</td>
+                        <td class=" hidden-phone">1</td>
+                        <td class=" hidden-phone">张三</td>
+                        <td class="hidden-phone">101班</td>
+                        <td class="hidden-phone">老班</td>
+                        <td class="hidden-phone">阴性</td>
+                        <td class="hidden-phone">2022-1-1</td>
+                        <td class=" hidden-phone">
+                            <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="详情" onclick="redirectToDetails('')">
+                                <i class="fa fa-info-circle"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+
