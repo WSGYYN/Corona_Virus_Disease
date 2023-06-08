@@ -1,0 +1,74 @@
+var app = new Vue({
+        el: "#app",
+        data: {
+            list: []
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/Leave/LeaveIndexJson')
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            redirectToDetails(id) {
+                window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(id);
+            },
+            redirectToDelete(id) {
+                window.location.href = '/Leave/LeaveDelete?id=' + encodeURIComponent(id);
+            }
+        },
+        mounted: function () {
+            // 在这里添加你想要在页面加载完成后执行的代码
+        }
+    })
+
+
+
+
+
+
+
+
+
+var app = new Vue({
+        el: "#app",
+        data: {
+            list: [],
+            reloadCount: 0 // 用一个变量来记录刷新次数
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/Leave/LeaveIndexJson')
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            redirectToDetails(id) {
+                window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(id);
+            },
+            redirectToDelete(id) {
+                window.location.href = '/Leave/LeaveDelete?id=' + encodeURIComponent(id);
+            }
+        },
+        mounted: function () {
+            // 如果刷新次数小于2，就刷新页面，并且增加刷新次数
+            if (this.reloadCount < 2) {
+                this.reloadCount++;
+                window.location.reload();
+            }
+        }
+    })

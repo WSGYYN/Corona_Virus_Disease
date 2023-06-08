@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "VisitAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">核算录入</h6>
+        <form action="/Visit/VisitAdd" method="post">
+
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" name="StuID"
+                        aria-label="Floating label select example">
+                    <option selected>选择学生</option>
+                    @foreach (var item in Model as List<Corona_Virus_Disease.Models.Student>)
+                    {
+                        <option value="@item.StuID">@item.StuName</option>
+                    }
+                </select>
+                <label for="floatingSelect">姓名</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" name="Vreason"
+                       placeholder="请输入">
+                <label for="floatingPassword">诊断说明</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" name="Hot"
+                        aria-label="Floating label select example">
+                    <option selected>是否发热</option>
+                    <option value="否">否</option>
+                    <option value="是">是</option>
+                </select>
+                <label for="floatingSelect">结果</label>
+            </div>
+            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+        </form>
+
+    </div>
+</div>
+

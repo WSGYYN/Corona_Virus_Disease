@@ -29,7 +29,6 @@
           <ScalarProperty Name="CID" ColumnName="CID" />
           <ScalarProperty Name="TID" ColumnName="TID" />
           <ScalarProperty Name="Classname" ColumnName="Classname" />
-          <ScalarProperty Name="department" ColumnName="department" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -64,6 +63,7 @@
           <ScalarProperty Name="Lorschool" ColumnName="Lorschool" />
           <ScalarProperty Name="Lview" ColumnName="Lview" />
           <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="VState" ColumnName="VState" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -87,6 +87,8 @@
           <ScalarProperty Name="StuPassword" ColumnName="StuPassword" />
           <ScalarProperty Name="StuClass" ColumnName="StuClass" />
           <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TID" ColumnName="TID" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

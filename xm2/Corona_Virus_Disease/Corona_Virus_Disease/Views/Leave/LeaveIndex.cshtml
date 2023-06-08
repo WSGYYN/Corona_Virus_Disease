@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "LeaveIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<style>
+    .btn {
+        padding: 0px 2px 0px 2px;
+    }
+</style>
+<div id="app">
+    <div class="row" style="background-color: aliceblue;">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    请假审批列表
+                    @*<button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title=" 就诊信息录入" onclick="redirectToAdd()">
+                        &nbsp;&nbsp;<i class="fa fa-plus-square">&nbsp;&nbsp; 就诊信息录入</i>
+                    </button>*@
+                </header>
+                <table class="table table-striped border-top" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th class="center hidden-phone">序号</th>
+                            <th class="center hidden-phone">学生姓名</th>
+                            <th class="center hidden-phone">起始时间</th>
+                            <th class="center hidden-phone">结束时间</th>
+                            <th class="center hidden-phone">是由</th>
+                            <th class="center hidden-phone">是否离校</th>
+                            <th class="center hidden-phone">审批意见</th>
+                            <th class="center hidden-phone">审批状态</th>
+                            <th class="center hidden-phone">审批人</th>
+                            <th class="center hidden-phone">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="odd gradeX" v-for="(item,index) in list">
+                            <td class=" hidden-phone">{{index+1}}</td>
+
+                            <td class=" hidden-phone">{{item.StuName}}</td>
+                            <td class=" hidden-phone">{{item.LstartTime}}</td>
+                            <td class=" hidden-phone">{{item.LoverTime}}</td>
+                            <td class="hidden-phone">{{item.Lreason}}</td>
+                            <td class="hidden-phone">
+                                <div v-if="item.Lorschool==0">否</div>
+                                <div v-if="item.Lorschool==1">是</div>
+                            </td>
+                            <td class="hidden-phone">{{item.Lview}}</td>
+                            <td class="hidden-phone">
+                                <div v-if="item.VState==0">待批准</div>
+                                <div v-if="item.VState==1">批准</div>
+                            </td>
+                            <td class="hidden-phone">{{item.TName}}</td>
+
+                            <td class=" hidden-phone">
+                                <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="审批" @@click="redirectToDetails(item.LID)">
+                                    <i class="fa fa-info-circle"></i>
+                                </button>
+                                <button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除" @@click="redirectToDelete(item.LID)">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: []
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/Leave/LeaveIndexJson')
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            redirectToDetails(id) {
+                window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(id);
+            },
+            redirectToDelete(id) {
+                window.location.href = '/Leave/LeaveDelete?id=' + encodeURIComponent(id);
+            }
+        }
+    })
+    function redirectToDetails(LID) {
+        window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(LID);
+    }
+</script>

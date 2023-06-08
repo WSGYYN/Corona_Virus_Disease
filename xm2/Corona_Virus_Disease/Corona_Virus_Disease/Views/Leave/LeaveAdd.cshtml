@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "LeaveAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">请假</h6>
+        <form action="/Leave/LeaveAdd" method="post">
+
+
+
+            <div class="form-floating mb-3">
+                <input type="datetime-local" class="form-control" id="floatingPassword" name="LstartTime"
+                       placeholder="输入时间">
+                <label for="floatingPassword">起始时间</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="datetime-local" class="form-control" id="floatingPassword" name="LoverTime"
+                       placeholder="输入时间">
+                <label for="floatingPassword">结束时间</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" name="Lorschool"
+                        aria-label="Floating label select example">
+                    <option selected>是否离校</option>
+                    <option value="0">否</option>
+                    <option value="1">是</option>
+                </select>
+                <label for="floatingSelect">是否离校</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="Lreason"
+                          id="floatingTextarea" style="height: 150px;"></textarea>
+                <label for="floatingTextarea">请假理由</label>
+            </div>
+            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+        </form>
+
+    </div>
+</div>
+

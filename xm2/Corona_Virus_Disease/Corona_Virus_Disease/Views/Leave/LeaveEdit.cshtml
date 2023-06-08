@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "LeaveEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<div id="app">
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">请假</h6>
+            <form action="/Leave/LeaveEdit" method="post">
+                <div v-for="(item,index) in list">
+                    <div class="form-floating mb-3">
+                        <input type="text" readonly class="form-control" id="floatingPassword" name="LID" v-model="item.LID"
+                               placeholder="审批编号">
+                        <label for="floatingPassword">审批编号</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" readonly class="form-control" id="floatingPassword" name="LstartTime" v-model="item.LstartTime"
+                               placeholder="输入时间">
+                        <label for="floatingPassword">起始时间</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" readonly class="form-control" id="floatingPassword" name="LoverTime" v-model="item.LoverTime"
+                               placeholder="输入时间">
+                        <label for="floatingPassword">结束时间</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" readonly class="form-control" id="floatingPassword" name="LstartTime" v-model="item.StuName"
+                               placeholder="请假学生">
+                        <label for="floatingPassword">请假学生</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" disabled id="floatingSelect" name="Lorschool" v-model="item.Lorschool"
+                                aria-label="Floating label select example">
+                            <option selected>是否离校</option>
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                        </select>
+                        <label for="floatingSelect">是否离校</label>
+                        <input type="text" hidden name="Lorschool" v-model="item.Lorschool" />
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea disabled class="form-control" placeholder="Leave a comment here" name="Lreason" v-model="item.Lreason"
+                                  id="floatingTextarea" style="height: 150px;"></textarea>
+                        <label for="floatingTextarea">请假理由</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Leave a comment here" name="Lview" v-model="item.Lview"
+                                  id="floatingTextarea" style="height: 150px;"></textarea>
+                        <label for="floatingTextarea">审批意见</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select"  id="floatingSelect" name="VState" v-model="item.VState"
+                                aria-label="Floating label select example">
+                            <option selected>审批状态</option>
+                            <option value="0">不通过</option>
+                            <option value="1">通过</option>
+                        </select>
+                        <label for="floatingSelect">审批状态</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+    var dz = window.location.href;
+    var id = dz.split("=")[1];
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: []
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/Leave/LeaveEditJson?id=' + encodeURIComponent(id))
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            redirectToDetails(id) {
+                window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(id);
+            }
+        }
+    })
+    function redirectToDetails(LID) {
+        window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(LID);
+    }
+</script>
+
+
+

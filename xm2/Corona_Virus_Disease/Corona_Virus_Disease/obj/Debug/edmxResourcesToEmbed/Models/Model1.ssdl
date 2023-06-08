@@ -27,7 +27,6 @@
     <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TID" Type="int" />
     <Property Name="Classname" Type="nvarchar" MaxLength="50" />
-    <Property Name="department" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Detection">
     <Key>
@@ -59,6 +58,7 @@
     <Property Name="Lorschool" Type="int" />
     <Property Name="Lview" Type="nvarchar" MaxLength="50" />
     <Property Name="TID" Type="int" />
+    <Property Name="VState" Type="int" />
   </EntityType>
   <EntityType Name="Notice">
     <Key>
@@ -80,6 +80,8 @@
     <Property Name="StuPassword" Type="nvarchar" MaxLength="50" />
     <Property Name="StuClass" Type="nvarchar" MaxLength="50" />
     <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="TID" Type="int" />
+    <Property Name="CID" Type="int" />
   </EntityType>
   <EntityType Name="Teacher">
     <Key>

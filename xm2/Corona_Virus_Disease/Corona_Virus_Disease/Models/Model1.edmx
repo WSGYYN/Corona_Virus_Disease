@@ -32,7 +32,6 @@
           <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TID" Type="int" />
           <Property Name="Classname" Type="nvarchar" MaxLength="50" />
-          <Property Name="department" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Detection">
           <Key>
@@ -64,6 +63,7 @@
           <Property Name="Lorschool" Type="int" />
           <Property Name="Lview" Type="nvarchar" MaxLength="50" />
           <Property Name="TID" Type="int" />
+          <Property Name="VState" Type="int" />
         </EntityType>
         <EntityType Name="Notice">
           <Key>
@@ -85,6 +85,8 @@
           <Property Name="StuPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="StuClass" Type="nvarchar" MaxLength="50" />
           <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="TID" Type="int" />
+          <Property Name="CID" Type="int" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -164,7 +166,6 @@
           <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TID" Type="Int32" />
           <Property Name="Classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Detection">
           <Key>
@@ -196,6 +197,7 @@
           <Property Name="Lorschool" Type="Int32" />
           <Property Name="Lview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TID" Type="Int32" />
+          <Property Name="VState" Type="Int32" />
         </EntityType>
         <EntityType Name="Notice">
           <Key>
@@ -217,6 +219,8 @@
           <Property Name="StuPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StuClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TID" Type="Int32" />
+          <Property Name="CID" Type="Int32" />
         </EntityType>
         <EntityType Name="Teacher">
           <Key>
@@ -298,7 +302,6 @@
                 <ScalarProperty Name="CID" ColumnName="CID" />
                 <ScalarProperty Name="TID" ColumnName="TID" />
                 <ScalarProperty Name="Classname" ColumnName="Classname" />
-                <ScalarProperty Name="department" ColumnName="department" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -333,6 +336,7 @@
                 <ScalarProperty Name="Lorschool" ColumnName="Lorschool" />
                 <ScalarProperty Name="Lview" ColumnName="Lview" />
                 <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="VState" ColumnName="VState" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -356,6 +360,8 @@
                 <ScalarProperty Name="StuPassword" ColumnName="StuPassword" />
                 <ScalarProperty Name="StuClass" ColumnName="StuClass" />
                 <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

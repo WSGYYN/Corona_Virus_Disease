@@ -17,6 +17,5 @@ namespace Corona_Virus_Disease.Models
         public int CID { get; set; }
         public Nullable<int> TID { get; set; }
         public string Classname { get; set; }
-        public string department { get; set; }
     }
 }

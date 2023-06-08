@@ -22,5 +22,6 @@ namespace Corona_Virus_Disease.Models
         public Nullable<int> Lorschool { get; set; }
         public string Lview { get; set; }
         public Nullable<int> TID { get; set; }
+        public Nullable<int> VState { get; set; }
     }
 }

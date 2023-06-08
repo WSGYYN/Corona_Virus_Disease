@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "DetectionIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var tea = Session["Teacher"] as Corona_Virus_Disease.Models.Teacher;
+    var dr = Session["Doctor"] as Corona_Virus_Disease.Models.Doctor;
+    var admin = Session["Admin"] as Corona_Virus_Disease.Models.Admin;
+
+}
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<style>
+    .btn {
+        padding: 0 0;
+    }
+</style>
+<div id="app">
+    <div class="row" style="background-color: aliceblue;">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    核算检测
+                    <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="核酸录入" onclick="redirectToAdd()">
+                        &nbsp;&nbsp;<i class="fa fa-plus-square">&nbsp;&nbsp;核酸录入</i>
+                    </button>
+                </header>
+                <table class="table table-striped border-top" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th class="center hidden-phone">序号</th>
+                            <th class="center hidden-phone">学生姓名</th>
+                            <th class="center hidden-phone">班级</th>
+                            <th class="center hidden-phone">老师</th>
+                            <th class="center hidden-phone">检测结果</th>
+                            <th class="center hidden-phone">检测时间</th>
+                            <th class="center hidden-phone">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="odd gradeX" v-for="(item,index) in list">
+                            <td class=" hidden-phone">{{index+1}}</td>
+                            <td class=" hidden-phone">{{item.StuName}}</td>
+                            <td class=" hidden-phone">{{item.Classname}}</td>
+                            <td class="hidden-phone">101{{item.TName}}</td>
+                            <td class="hidden-phone">{{item.Dresult}}</td>
+                            <td class="hidden-phone">{{item.Dtime}}</td>
+                            <td class=" hidden-phone">
+                                <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="详情" onclick="redirectToDetails('')">
+                                    <i class="fa fa-info-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: []
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/Detection/DetectionIndexJson')
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            }
+        }
+    })
+    function redirectToAdd() {
+        window.location.href = '/Detection/DetectionAdd';
+    }
+</script>
+
+
+

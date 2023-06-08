@@ -27,7 +27,6 @@
     <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TID" Type="Int32" />
     <Property Name="Classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Detection">
     <Key>
@@ -59,6 +58,7 @@
     <Property Name="Lorschool" Type="Int32" />
     <Property Name="Lview" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TID" Type="Int32" />
+    <Property Name="VState" Type="Int32" />
   </EntityType>
   <EntityType Name="Notice">
     <Key>
@@ -80,6 +80,8 @@
     <Property Name="StuPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="StuClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TID" Type="Int32" />
+    <Property Name="CID" Type="Int32" />
   </EntityType>
   <EntityType Name="Teacher">
     <Key>

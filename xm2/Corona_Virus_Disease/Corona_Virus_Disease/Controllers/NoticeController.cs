@@ -18,8 +18,23 @@ namespace Corona_Virus_Disease.Controllers
         }
         public ActionResult XNotice(int ? id)
 		{
-            var NXList = db.Notice.ToList();
-            return View(NXList);
+            return View();
+        }
+        public ActionResult XNoticeJson(int ? id)
+		{
+            var NXList = from t1 in db.Notice
+                         where
+                           t1.NID == id
+                         select new
+                         {
+                             t1.NID,
+                             Ntitle = t1.Ntitle,
+                             NContent = t1.NContent,
+                             ReleTime = t1.ReleTime,
+                             Npic = t1.Npic
+                         };
+
+            return Json(NXList, JsonRequestBehavior.AllowGet);
         }
     }
 }

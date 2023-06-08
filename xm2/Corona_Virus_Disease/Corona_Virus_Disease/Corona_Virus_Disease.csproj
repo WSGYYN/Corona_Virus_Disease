@@ -164,10 +164,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DetectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeaveController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VisitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -362,6 +365,8 @@
     <Content Include="Content\Content-FrontModel02\js\owl.carousel.js" />
     <Content Include="Content\Content-FrontModel02\js\sliders.js" />
     <Content Include="Content\Content-FrontModel02\js\sparkline-chart.js" />
+    <Content Include="Content\Content-FrontModel03\jsvue001.js" />
+    <Content Include="Content\Content-FrontModel03\jsvue002.js" />
     <Content Include="Content\Content-FrontModel\css\bootstrap.min.css" />
     <Content Include="Content\Content-FrontModel\css\cdn-js01.css" />
     <Content Include="Content\Content-FrontModel\css\cdn-js02.css" />
@@ -559,6 +564,14 @@
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\Notice\NoticeIndex.cshtml" />
     <Content Include="Views\Home\NoLogin.cshtml" />
+    <Content Include="Views\Notice\XNotice.cshtml" />
+    <Content Include="Views\Detection\DetectionIndex.cshtml" />
+    <Content Include="Views\Detection\DetectionAdd.cshtml" />
+    <Content Include="Views\Visit\VisitIndex.cshtml" />
+    <Content Include="Views\Visit\VisitAdd.cshtml" />
+    <Content Include="Views\Leave\LeaveIndex.cshtml" />
+    <Content Include="Views\Leave\LeaveAdd.cshtml" />
+    <Content Include="Views\Leave\LeaveEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
