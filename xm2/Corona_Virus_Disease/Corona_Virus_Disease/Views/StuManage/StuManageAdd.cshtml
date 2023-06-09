@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "StuManageAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">添加学生</h6>
+        <form action="/StuManage/StuManageAdd" method="post">
+
+
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" name="CID"
+                        aria-label="Floating label select example">
+                    <option selected>班级</option>
+                    @foreach (var item in Model as List<Corona_Virus_Disease.Models.Class>)
+                    {
+                        <option value="@item.CID">@item.Classname (编号：@item.CID)</option>
+                    }
+                </select>
+                <label for="floatingSelect">班级</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" name="StuXH"
+                       placeholder="学号">
+                <label for="floatingPassword">学号</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" name="StuName"
+                       placeholder="姓名">
+                <label for="floatingPassword">姓名</label>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+        </form>
+
+    </div>
+</div>
+

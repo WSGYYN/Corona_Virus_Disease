@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "ArticleAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">添加物品</h6>
+        @*<form action="/Article/ArticleAdd" method="post">*@
+        @using (Html.BeginForm("ArticleAdd", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            <div class="form-floating mb-3">
+                <select class="form-select" id="floatingSelect" name="Atype"
+                        aria-label="Floating label select example">
+                    <option selected>选择物品类型</option>
+                    <option value="消杀类">消杀类</option>
+                    <option value="防护类">防护类</option>
+                </select>
+                <label for="floatingSelect">类型</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" name="Aname"
+                       placeholder="名称">
+                <label for="floatingPassword">名称</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" name="Acount"
+                       placeholder="数量">
+                <label for="floatingPassword">数量</label>
+            </div>
+            <div class=" mb-3">
+                <label for="formFile" class="form-label">请选择物品图片</label>
+                <input class="form-control" type="file" id="formFile" name="Apic">
+            </div>
+
+            <input type="submit" class="btn btn-primary py-3 w-100 mb-4" value="提交">
+            @*</form>*@
+        }
+        </div>
+</div>

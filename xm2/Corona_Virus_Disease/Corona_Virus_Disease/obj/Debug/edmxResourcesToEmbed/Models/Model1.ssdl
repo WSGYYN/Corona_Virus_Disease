@@ -82,6 +82,7 @@
     <Property Name="State" Type="nvarchar" MaxLength="50" />
     <Property Name="TID" Type="int" />
     <Property Name="CID" Type="int" />
+    <Property Name="StuXH" Type="int" />
   </EntityType>
   <EntityType Name="Teacher">
     <Key>

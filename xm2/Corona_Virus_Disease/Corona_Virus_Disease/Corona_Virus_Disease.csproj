@@ -164,11 +164,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\DetectionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
+    <Compile Include="Controllers\StuManageController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VisitController.cs" />
     <Compile Include="Global.asax.cs">
@@ -398,6 +400,7 @@
     <Content Include="Content\Content-FrontModel\lib\tempusdominus\js\tempusdominus-bootstrap-4.js" />
     <Content Include="Content\Content-FrontModel\lib\tempusdominus\js\tempusdominus-bootstrap-4.min.js" />
     <Content Include="Content\Content-FrontModel\lib\waypoints\waypoints.min.js" />
+    <Content Include="Content\Image\微信截图_20230609153548.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
@@ -572,6 +575,12 @@
     <Content Include="Views\Leave\LeaveIndex.cshtml" />
     <Content Include="Views\Leave\LeaveAdd.cshtml" />
     <Content Include="Views\Leave\LeaveEdit.cshtml" />
+    <Content Include="Views\StuManage\StuManageIndex.cshtml" />
+    <Content Include="Views\StuManage\StuManageEdit.cshtml" />
+    <Content Include="Views\Article\ArticleIndex.cshtml" />
+    <Content Include="Views\StuManage\StuManageAdd.cshtml" />
+    <Content Include="Views\Article\ArticleAdd.cshtml" />
+    <Content Include="Views\Article\ArticleEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

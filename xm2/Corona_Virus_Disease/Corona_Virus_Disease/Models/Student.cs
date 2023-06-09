@@ -22,5 +22,6 @@ namespace Corona_Virus_Disease.Models
         public string State { get; set; }
         public Nullable<int> TID { get; set; }
         public Nullable<int> CID { get; set; }
+        public Nullable<int> StuXH { get; set; }
     }
 }

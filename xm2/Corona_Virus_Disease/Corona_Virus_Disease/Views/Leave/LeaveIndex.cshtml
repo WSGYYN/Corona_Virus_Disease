@@ -98,11 +98,22 @@
                 window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(id);
             },
             redirectToDelete(id) {
-                window.location.href = '/Leave/LeaveDelete?id=' + encodeURIComponent(id);
+                var confirmation = confirm("你确认要删除该记录吗？")
+                if (confirmation) {
+                    window.location.href = '/Leave/LeaveDelete?id=' + encodeURIComponent(id);
+                }
             }
         }
     })
     function redirectToDetails(LID) {
         window.location.href = '/Leave/LeaveEdit?id=' + encodeURIComponent(LID);
+    }
+    function redirectToDelete(TopicID, PaperID) {
+        var confirmation = confirm("你确认要删除编号为：" + TopicID + "的试题吗？")
+        if (confirmation) {
+            setTimeout(function () {
+                window.location.href = '/Topic/TopicDelete?id=' + encodeURIComponent(TopicID) + '&pid=' + encodeURIComponent(PaperID);
+            })
+        }
     }
 </script>

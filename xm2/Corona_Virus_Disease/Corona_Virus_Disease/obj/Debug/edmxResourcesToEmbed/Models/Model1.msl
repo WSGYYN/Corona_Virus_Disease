@@ -89,6 +89,7 @@
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="TID" ColumnName="TID" />
           <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="StuXH" ColumnName="StuXH" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

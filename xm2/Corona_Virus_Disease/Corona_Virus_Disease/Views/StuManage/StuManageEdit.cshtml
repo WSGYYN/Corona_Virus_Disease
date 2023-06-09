@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "StuManageEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<div id="app">
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">学生信息修改</h6>
+            <form action="/StuManage/StuManageEdit" method="post">
+
+                <div v-for="(item,index) in list">
+                    <input hidden type="text" name="StuID" v-model="item.StuID" />
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" name="StuXH" v-model="item.StuXH"
+                               placeholder="学号">
+                        <label for="floatingPassword">学号</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" name="StuName" v-model="item.StuName"
+                               placeholder="学生姓名">
+                        <label for="floatingPassword">学生姓名</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" name="CID" v-model="item.CID"
+                                aria-label="Floating label select example">
+                            <option selected>班级</option>
+                            @foreach (var item in Model as List<Corona_Virus_Disease.Models.Class>)
+                            {
+                                <option value="@item.CID">@item.Classname</option>
+                            }
+                        </select>
+                        <label for="floatingSelect">班级</label>
+                    </div>
+                    @*<div class="form-floating mb-3">
+                        
+                        <div v-for="classes in classlist">
+                            <select class="form-select" id="floatingSelect" name="CID" v-model="item.CID"
+                                    aria-label="Floating label select example">
+                                <option selected>班级</option>
+                                <option v-model="classes.CID">{{classes.Classname}}</option>
+                            </select>
+                        </div>
+                        <label for="floatingSelect">班级</label>
+                    </div>*@
+                </div>
+
+                
+                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+    var dz = window.location.href;
+    var id = dz.split("=")[1];
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: [],
+            classlist: []
+        },
+        created: function () {
+            this.NoticeData();
+            this.classData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/StuManage/StuManageEditJson?id=' + encodeURIComponent(id))
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            classData: function () {
+                var vm = this;
+                axios.get('/StuManage/ClassAllJson')
+                    .then(function (response) {
+                        vm.classlist = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            }
+        }
+    })
+
+</script>
+
