@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "UserService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-12 col-xl-12">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">领用物资</h6>
+        <form action="/User/UserService" method="post">
+
+            @foreach (var item in Model as List<Corona_Virus_Disease.Models.Article>)
+            {
+                <input hidden name="AID" value="@item.AID" />
+                <div class="form-floating mb-3">
+                    <select disabled class="form-select" id="floatingSelect" name="Atype"
+                            aria-label="Floating label select example">
+
+                        <option>@item.Atype</option>
+                    </select>
+                    <label for="floatingSelect">类型</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input disabled type="text" class="form-control" id="floatingPassword" value="@item.Aname" name="Aname"
+                           placeholder="名称">
+                    <label for="floatingPassword">名称</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input disabled type="text" class="form-control" id="stock" value="@item.Acount" name="Acount"
+                           placeholder="库存">
+                    <label for="floatingPassword">库存</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="amount" name="UCount"
+                           placeholder="数量" oninput="checkValue(this)">
+                    <label for="floatingPassword">领用数量</label>
+                </div>
+
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" name="Uto"
+                              id="floatingTextarea" style="height: 150px;"></textarea>
+                    <label for="floatingTextarea">用途</label>
+                </div>
+            }
+            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+        </form>
+
+    </div>
+</div>
+<script>
+  function checkValue(input) {
+    var max = document.getElementById("stock").value;
+    var value = input.value; 
+    if (value > max) { 
+      input.value = max; 
+      alert("领取的数量不能超过库存");
+    }
+  }
+</script>
+

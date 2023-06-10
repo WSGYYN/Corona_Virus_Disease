@@ -12,15 +12,9 @@ namespace Corona_Virus_Disease.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Bmt
     {
-        public int StuID { get; set; }
-        public string StuAcc { get; set; }
-        public string StuName { get; set; }
-        public string StuPassword { get; set; }
-        public string State { get; set; }
-        public Nullable<int> TID { get; set; }
-        public Nullable<int> CID { get; set; }
-        public Nullable<int> StuXH { get; set; }
+        public int BMID { get; set; }
+        public string BMname { get; set; }
     }
 }

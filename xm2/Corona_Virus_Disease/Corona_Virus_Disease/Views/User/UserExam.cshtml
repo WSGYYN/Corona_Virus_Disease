@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "UserExam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<style>
+    .btn {
+        padding: 0px 2px 0px 2px;
+    }
+</style>
+<div id="app">
+    <div class="row" style="background-color: aliceblue;">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    物资领用审批列表
+                    @*<button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="添加学生" onclick="redirectToAdd()">
+                        &nbsp;&nbsp;<i class="fa fa-plus-square">&nbsp;&nbsp; 添加学生</i>
+                    </button>*@
+                </header>
+                <table class="table table-striped border-top" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th class="center hidden-phone">序号</th>
+                            <th class="center hidden-phone">物品名称</th>
+                            <th class="center hidden-phone">领用数量</th>
+                            <th class="center hidden-phone">用途</th>
+                            <th class="center hidden-phone">领用时间</th>
+                            <th class="center hidden-phone">领用人</th>
+                            <th class="center hidden-phone">状态</th>
+                            <th class="center hidden-phone">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="odd gradeX" v-for="(item,index) in list">
+                            <td class=" hidden-phone">{{index+1}}</td>
+
+                            <td class=" hidden-phone">{{item.Aname}}</td>
+                            <td class=" hidden-phone">{{item.UCount}}</td>
+                            <td class=" hidden-phone">{{item.Uto}}</td>
+                            <td class="hidden-phone">{{item.Atime}}</td>
+                            <td class="hidden-phone">{{item.Apeople}}</td>
+                            <td class="hidden-phone">
+                                <div v-if="item.State=='0'">未审批</div>
+                                <div v-if="item.State=='1'">审批通过</div>
+                            
+                            </td>
+                            <td class=" hidden-phone">
+                                <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="审批" @@click="redirectToDetails(item.AID,item.UCount,item.UID)">
+                                    <i class="fa fa-info-circle"></i>
+                                </button>
+                                
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: []
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                axios.get('/User/UserExamJson')
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            redirectToDetails(id,count,uid) {
+                var confirmation = confirm("审批通过后，会从仓库中扣除响应的物资，请确认")
+                if (confirmation) {
+                    window.location.href = '/User/counts?id=' + encodeURIComponent(id) + '&count=' + encodeURIComponent(count) + '&uid=' + encodeURIComponent(uid);
+                }
+            }
+        }
+    })
+    function redirectToAdd() {
+        window.location.href = '/StuManage/StuManageAdd'
+    }
+</script>
+
+

@@ -20,5 +20,6 @@ namespace Corona_Virus_Disease.Models
         public string TPassword { get; set; }
         public string TBM { get; set; }
         public string State { get; set; }
+        public Nullable<int> BMID { get; set; }
     }
 }

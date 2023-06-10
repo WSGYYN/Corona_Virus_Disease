@@ -160,7 +160,7 @@ namespace Corona_Virus_Disease.Controllers
 				throw;
 			}
 		}
-		public ActionResult StuManageEditJson(int ? id)
+		public ActionResult StuManageEditJson(int? id)
 		{
 
 			var studentjson = from t1 in db.Student
@@ -172,7 +172,6 @@ namespace Corona_Virus_Disease.Controllers
 								  StuAcc = t1.StuAcc,
 								  StuName = t1.StuName,
 								  StuPassword = t1.StuPassword,
-								  StuClass = t1.StuClass,
 								  State = t1.State,
 								  t1.TID,
 								  t1.CID,

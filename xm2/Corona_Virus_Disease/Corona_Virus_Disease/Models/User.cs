@@ -20,5 +20,6 @@ namespace Corona_Virus_Disease.Models
         public string State { get; set; }
         public Nullable<System.DateTime> Atime { get; set; }
         public string Uto { get; set; }
+        public Nullable<int> UCount { get; set; }
     }
 }

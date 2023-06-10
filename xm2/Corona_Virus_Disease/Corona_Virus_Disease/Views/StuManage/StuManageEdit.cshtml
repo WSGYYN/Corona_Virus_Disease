@@ -66,11 +66,9 @@
         el: "#app",
         data: {
             list: [],
-            classlist: []
         },
         created: function () {
             this.NoticeData();
-            this.classData();
         },
         methods: {
             NoticeData: function () {
@@ -82,17 +80,8 @@
                     .catch(function (error) {
                         console.log(error);
                     })
-            },
-            classData: function () {
-                var vm = this;
-                axios.get('/StuManage/ClassAllJson')
-                    .then(function (response) {
-                        vm.classlist = response.data;
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    })
             }
+            
         }
     })
 

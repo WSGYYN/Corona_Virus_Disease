@@ -27,6 +27,7 @@ namespace Corona_Virus_Disease.Models
     
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Article> Article { get; set; }
+        public virtual DbSet<Bmt> Bmt { get; set; }
         public virtual DbSet<Class> Class { get; set; }
         public virtual DbSet<Detection> Detection { get; set; }
         public virtual DbSet<Doctor> Doctor { get; set; }

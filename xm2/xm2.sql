@@ -65,15 +65,17 @@ select * from Article
 
 
 
-SELECT *,1 as tttype FROM Student t1
+SELECT *  FROM Student t1
 FULL OUTER JOIN Teacher t2 ON 1 = 0 
 FULL OUTER JOIN Admin t3 ON 1 = 0;
 
 
 
-CREATE VIEW v_table AS
-SELECT *, '学生' AS tttype FROM Student
-UNION ALL
-SELECT *, '教师' AS tttype FROM Teacher
-UNION ALL
-SELECT *, '管理员' AS tttype FROM Admin;
+
+
+select t1.UID,t2.AID,t1.State,t1.Apeople,t1.Atime,t1.UCount,t1.Uto,t2.Aname from [user] t1
+left join Article t2 on t1.AID=t2.AID
+
+
+select * from Teacher t1
+left join Bmt t2 on t1.BMID=t2.BMID

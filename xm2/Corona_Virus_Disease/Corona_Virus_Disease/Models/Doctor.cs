@@ -18,5 +18,6 @@ namespace Corona_Virus_Disease.Models
         public string Drname { get; set; }
         public string DrAcc { get; set; }
         public string DrPassword { get; set; }
+        public Nullable<int> BMID { get; set; }
     }
 }

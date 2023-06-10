@@ -8,6 +8,7 @@
     <Property Name="AdminAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="AdminPaword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BMID" Type="Int32" />
   </EntityType>
   <EntityType Name="Article">
     <Key>
@@ -20,6 +21,13 @@
     <Property Name="Atype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Warehousing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Bmt">
+    <Key>
+      <PropertyRef Name="BMID" />
+    </Key>
+    <Property Name="BMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BMname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Class">
     <Key>
       <PropertyRef Name="CID" />
@@ -27,6 +35,7 @@
     <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TID" Type="Int32" />
     <Property Name="Classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BMID" Type="Int32" />
   </EntityType>
   <EntityType Name="Detection">
     <Key>
@@ -45,6 +54,7 @@
     <Property Name="Drname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DrAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DrPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BMID" Type="Int32" />
   </EntityType>
   <EntityType Name="Leave">
     <Key>
@@ -78,7 +88,6 @@
     <Property Name="StuAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="StuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="StuPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="StuClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TID" Type="Int32" />
     <Property Name="CID" Type="Int32" />
@@ -94,6 +103,7 @@
     <Property Name="TPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="TBM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BMID" Type="Int32" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -105,6 +115,7 @@
     <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Atime" Type="DateTime" Precision="3" />
     <Property Name="Uto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UCount" Type="Int32" />
   </EntityType>
   <EntityType Name="Visit">
     <Key>
@@ -120,6 +131,7 @@
   <EntityContainer Name="CvdDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Admin" EntityType="Self.Admin" />
     <EntitySet Name="Article" EntityType="Self.Article" />
+    <EntitySet Name="Bmt" EntityType="Self.Bmt" />
     <EntitySet Name="Class" EntityType="Self.Class" />
     <EntitySet Name="Detection" EntityType="Self.Detection" />
     <EntitySet Name="Doctor" EntityType="Self.Doctor" />

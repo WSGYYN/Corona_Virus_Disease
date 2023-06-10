@@ -8,6 +8,7 @@
     <Property Name="AdminAcc" Type="nvarchar" MaxLength="50" />
     <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
     <Property Name="AdminPaword" Type="nvarchar" MaxLength="50" />
+    <Property Name="BMID" Type="int" />
   </EntityType>
   <EntityType Name="Article">
     <Key>
@@ -20,6 +21,13 @@
     <Property Name="Atype" Type="nvarchar" MaxLength="50" />
     <Property Name="Warehousing" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Bmt">
+    <Key>
+      <PropertyRef Name="BMID" />
+    </Key>
+    <Property Name="BMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BMname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Class">
     <Key>
       <PropertyRef Name="CID" />
@@ -27,6 +35,7 @@
     <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TID" Type="int" />
     <Property Name="Classname" Type="nvarchar" MaxLength="50" />
+    <Property Name="BMID" Type="int" />
   </EntityType>
   <EntityType Name="Detection">
     <Key>
@@ -45,6 +54,7 @@
     <Property Name="Drname" Type="nvarchar" MaxLength="50" />
     <Property Name="DrAcc" Type="nvarchar" MaxLength="50" />
     <Property Name="DrPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="BMID" Type="int" />
   </EntityType>
   <EntityType Name="Leave">
     <Key>
@@ -78,7 +88,6 @@
     <Property Name="StuAcc" Type="nvarchar" MaxLength="50" />
     <Property Name="StuName" Type="nvarchar" MaxLength="50" />
     <Property Name="StuPassword" Type="nvarchar" MaxLength="50" />
-    <Property Name="StuClass" Type="nvarchar" MaxLength="50" />
     <Property Name="State" Type="nvarchar" MaxLength="50" />
     <Property Name="TID" Type="int" />
     <Property Name="CID" Type="int" />
@@ -94,6 +103,7 @@
     <Property Name="TPassword" Type="nvarchar" MaxLength="50" />
     <Property Name="TBM" Type="nvarchar" MaxLength="50" />
     <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="BMID" Type="int" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -105,6 +115,7 @@
     <Property Name="State" Type="nvarchar" MaxLength="50" />
     <Property Name="Atime" Type="datetime" />
     <Property Name="Uto" Type="nvarchar" MaxLength="50" />
+    <Property Name="UCount" Type="int" />
   </EntityType>
   <EntityType Name="Visit">
     <Key>
@@ -120,6 +131,7 @@
   <EntityContainer Name="CvdDBModelStoreContainer">
     <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bmt" EntityType="Self.Bmt" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Detection" EntityType="Self.Detection" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />

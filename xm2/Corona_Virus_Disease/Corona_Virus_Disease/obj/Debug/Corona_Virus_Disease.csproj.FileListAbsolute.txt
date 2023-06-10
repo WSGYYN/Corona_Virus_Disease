@@ -299,4 +299,3 @@ C:\Users\86155\Desktop\xm2\Corona_Virus_Disease\Corona_Virus_Disease\obj\Debug\C
 C:\Users\86155\Desktop\xm2\Corona_Virus_Disease\Corona_Virus_Disease\obj\Debug\Corona_Virus_Disease.csproj.CopyComplete
 C:\Users\86155\Desktop\xm2\Corona_Virus_Disease\Corona_Virus_Disease\obj\Debug\Corona_Virus_Disease.dll
 C:\Users\86155\Desktop\xm2\Corona_Virus_Disease\Corona_Virus_Disease\obj\Debug\Corona_Virus_Disease.pdb
-D:\文档\xm2\Corona_Virus_Disease\Corona_Virus_Disease\obj\Debug\Corona_Virus_Disease.csproj.AssemblyReference.cache

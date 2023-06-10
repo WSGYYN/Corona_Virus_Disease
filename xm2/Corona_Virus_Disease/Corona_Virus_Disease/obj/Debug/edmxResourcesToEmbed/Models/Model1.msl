@@ -8,6 +8,7 @@
           <ScalarProperty Name="AdminAcc" ColumnName="AdminAcc" />
           <ScalarProperty Name="AdminName" ColumnName="AdminName" />
           <ScalarProperty Name="AdminPaword" ColumnName="AdminPaword" />
+          <ScalarProperty Name="BMID" ColumnName="BMID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -23,12 +24,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Bmt">
+      <EntityTypeMapping TypeName="CvdDBModel.Bmt">
+        <MappingFragment StoreEntitySet="Bmt">
+          <ScalarProperty Name="BMID" ColumnName="BMID" />
+          <ScalarProperty Name="BMname" ColumnName="BMname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Class">
       <EntityTypeMapping TypeName="CvdDBModel.Class">
         <MappingFragment StoreEntitySet="Class">
           <ScalarProperty Name="CID" ColumnName="CID" />
           <ScalarProperty Name="TID" ColumnName="TID" />
           <ScalarProperty Name="Classname" ColumnName="Classname" />
+          <ScalarProperty Name="BMID" ColumnName="BMID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -49,6 +59,7 @@
           <ScalarProperty Name="Drname" ColumnName="Drname" />
           <ScalarProperty Name="DrAcc" ColumnName="DrAcc" />
           <ScalarProperty Name="DrPassword" ColumnName="DrPassword" />
+          <ScalarProperty Name="BMID" ColumnName="BMID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -85,7 +96,6 @@
           <ScalarProperty Name="StuAcc" ColumnName="StuAcc" />
           <ScalarProperty Name="StuName" ColumnName="StuName" />
           <ScalarProperty Name="StuPassword" ColumnName="StuPassword" />
-          <ScalarProperty Name="StuClass" ColumnName="StuClass" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="TID" ColumnName="TID" />
           <ScalarProperty Name="CID" ColumnName="CID" />
@@ -102,6 +112,7 @@
           <ScalarProperty Name="TPassword" ColumnName="TPassword" />
           <ScalarProperty Name="TBM" ColumnName="TBM" />
           <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="BMID" ColumnName="BMID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -114,6 +125,7 @@
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Atime" ColumnName="Atime" />
           <ScalarProperty Name="Uto" ColumnName="Uto" />
+          <ScalarProperty Name="UCount" ColumnName="UCount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

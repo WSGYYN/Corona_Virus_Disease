@@ -13,6 +13,7 @@
           <Property Name="AdminAcc" Type="nvarchar" MaxLength="50" />
           <Property Name="AdminName" Type="nvarchar" MaxLength="50" />
           <Property Name="AdminPaword" Type="nvarchar" MaxLength="50" />
+          <Property Name="BMID" Type="int" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -25,6 +26,13 @@
           <Property Name="Atype" Type="nvarchar" MaxLength="50" />
           <Property Name="Warehousing" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Bmt">
+          <Key>
+            <PropertyRef Name="BMID" />
+          </Key>
+          <Property Name="BMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BMname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="CID" />
@@ -32,6 +40,7 @@
           <Property Name="CID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TID" Type="int" />
           <Property Name="Classname" Type="nvarchar" MaxLength="50" />
+          <Property Name="BMID" Type="int" />
         </EntityType>
         <EntityType Name="Detection">
           <Key>
@@ -50,6 +59,7 @@
           <Property Name="Drname" Type="nvarchar" MaxLength="50" />
           <Property Name="DrAcc" Type="nvarchar" MaxLength="50" />
           <Property Name="DrPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="BMID" Type="int" />
         </EntityType>
         <EntityType Name="Leave">
           <Key>
@@ -83,7 +93,6 @@
           <Property Name="StuAcc" Type="nvarchar" MaxLength="50" />
           <Property Name="StuName" Type="nvarchar" MaxLength="50" />
           <Property Name="StuPassword" Type="nvarchar" MaxLength="50" />
-          <Property Name="StuClass" Type="nvarchar" MaxLength="50" />
           <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="TID" Type="int" />
           <Property Name="CID" Type="int" />
@@ -99,6 +108,7 @@
           <Property Name="TPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="TBM" Type="nvarchar" MaxLength="50" />
           <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="BMID" Type="int" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -110,6 +120,7 @@
           <Property Name="State" Type="nvarchar" MaxLength="50" />
           <Property Name="Atime" Type="datetime" />
           <Property Name="Uto" Type="nvarchar" MaxLength="50" />
+          <Property Name="UCount" Type="int" />
         </EntityType>
         <EntityType Name="Visit">
           <Key>
@@ -125,6 +136,7 @@
         <EntityContainer Name="CvdDBModelStoreContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bmt" EntityType="Self.Bmt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Detection" EntityType="Self.Detection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
@@ -148,6 +160,7 @@
           <Property Name="AdminAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AdminPaword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BMID" Type="Int32" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -160,6 +173,13 @@
           <Property Name="Atype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Warehousing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Bmt">
+          <Key>
+            <PropertyRef Name="BMID" />
+          </Key>
+          <Property Name="BMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BMname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="CID" />
@@ -167,6 +187,7 @@
           <Property Name="CID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TID" Type="Int32" />
           <Property Name="Classname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BMID" Type="Int32" />
         </EntityType>
         <EntityType Name="Detection">
           <Key>
@@ -185,6 +206,7 @@
           <Property Name="Drname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DrAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DrPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BMID" Type="Int32" />
         </EntityType>
         <EntityType Name="Leave">
           <Key>
@@ -218,7 +240,6 @@
           <Property Name="StuAcc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="StuPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StuClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TID" Type="Int32" />
           <Property Name="CID" Type="Int32" />
@@ -234,6 +255,7 @@
           <Property Name="TPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TBM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BMID" Type="Int32" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -245,6 +267,7 @@
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Atime" Type="DateTime" Precision="3" />
           <Property Name="Uto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UCount" Type="Int32" />
         </EntityType>
         <EntityType Name="Visit">
           <Key>
@@ -260,6 +283,7 @@
         <EntityContainer Name="CvdDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Article" EntityType="Self.Article" />
+          <EntitySet Name="Bmt" EntityType="Self.Bmt" />
           <EntitySet Name="Class" EntityType="Self.Class" />
           <EntitySet Name="Detection" EntityType="Self.Detection" />
           <EntitySet Name="Doctor" EntityType="Self.Doctor" />
@@ -283,6 +307,7 @@
                 <ScalarProperty Name="AdminAcc" ColumnName="AdminAcc" />
                 <ScalarProperty Name="AdminName" ColumnName="AdminName" />
                 <ScalarProperty Name="AdminPaword" ColumnName="AdminPaword" />
+                <ScalarProperty Name="BMID" ColumnName="BMID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -298,12 +323,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Bmt">
+            <EntityTypeMapping TypeName="CvdDBModel.Bmt">
+              <MappingFragment StoreEntitySet="Bmt">
+                <ScalarProperty Name="BMID" ColumnName="BMID" />
+                <ScalarProperty Name="BMname" ColumnName="BMname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Class">
             <EntityTypeMapping TypeName="CvdDBModel.Class">
               <MappingFragment StoreEntitySet="Class">
                 <ScalarProperty Name="CID" ColumnName="CID" />
                 <ScalarProperty Name="TID" ColumnName="TID" />
                 <ScalarProperty Name="Classname" ColumnName="Classname" />
+                <ScalarProperty Name="BMID" ColumnName="BMID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -324,6 +358,7 @@
                 <ScalarProperty Name="Drname" ColumnName="Drname" />
                 <ScalarProperty Name="DrAcc" ColumnName="DrAcc" />
                 <ScalarProperty Name="DrPassword" ColumnName="DrPassword" />
+                <ScalarProperty Name="BMID" ColumnName="BMID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -360,7 +395,6 @@
                 <ScalarProperty Name="StuAcc" ColumnName="StuAcc" />
                 <ScalarProperty Name="StuName" ColumnName="StuName" />
                 <ScalarProperty Name="StuPassword" ColumnName="StuPassword" />
-                <ScalarProperty Name="StuClass" ColumnName="StuClass" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="TID" ColumnName="TID" />
                 <ScalarProperty Name="CID" ColumnName="CID" />
@@ -377,6 +411,7 @@
                 <ScalarProperty Name="TPassword" ColumnName="TPassword" />
                 <ScalarProperty Name="TBM" ColumnName="TBM" />
                 <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="BMID" ColumnName="BMID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -389,6 +424,7 @@
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Atime" ColumnName="Atime" />
                 <ScalarProperty Name="Uto" ColumnName="Uto" />
+                <ScalarProperty Name="UCount" ColumnName="UCount" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
