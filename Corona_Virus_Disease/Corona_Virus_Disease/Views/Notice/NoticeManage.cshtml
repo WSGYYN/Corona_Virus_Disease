@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "NoticeManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int count = 1;
+}
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<style>
+    .btn {
+        padding: 0px 2px 0px 2px;
+    }
+</style>
+<div id="app">
+    <div class="row" style="background-color: aliceblue;">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    公告管理列表
+                    <button class="btn btn-success btn-xs" data-toggle="tooltip" data-placement="top" title="添加学生" onclick="redirectToAdd()">
+                        &nbsp;&nbsp;<i class="fa fa-plus-square">&nbsp;&nbsp; 发布公告</i>
+                    </button>
+                </header>
+                <table class="table table-striped border-top" id="sample_1">
+                    <thead>
+                        <tr style="text-align:center;">
+                            <th class="center hidden-phone">序号</th>
+                            <th class="center hidden-phone">标题</th>
+                            <th class="center hidden-phone">内容</th>
+                            <th class="center hidden-phone">图片</th>
+                            <th class="center hidden-phone">发布时间</th>
+                            <th class="center hidden-phone">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model as List<Corona_Virus_Disease.Models.Notice>)
+                        {
+                            <tr class="odd gradeX" style="text-align:center;vertical-align:middle;">
+                                <td class=" hidden-phone">@count</td>
+
+                                <td class=" hidden-phone">@item.Ntitle</td>
+                                <td class=" hidden-phone">@item.NContent</td>
+                                <td class=" hidden-phone">
+                                    @if (item.Npic == null)
+                                    {
+                                        <span style="color:red;">无图片</span>
+                                    }
+                                    else
+                                    {
+                                        <img width="100" height="100" src="~/Content/Image/@item.Npic" />
+                                    }
+                                </td>
+                                <td class="hidden-phone">@item.ReleTime</td>
+                                <td class=" hidden-phone">
+                                    
+                                    <button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="删除" onclick="redirectToDelete('@item.NID')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            count++;
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+<script>
+    function redirectToDelete(id) {
+        var confirmation = confirm("你确认要删除该记录吗？")
+        if (confirmation) {
+            window.location.href = '/Notice/NoticeDelete?id=' + encodeURIComponent(id);
+        }
+    }
+    function redirectToAdd() {
+        window.location.href = '/Notice/NoticeAdd';
+    }
+</script>
+@*<script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                list: []
+            },
+            created: function () {
+                this.NoticeData();
+            },
+            methods: {
+                NoticeData: function () {
+                    var vm = this;
+                    axios.get('/StuManage/StuManageIndexJson')
+                        .then(function (response) {
+                            vm.list = response.data;
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        })
+                },
+                redirectToDetails(id) {
+                    window.location.href = '/StuManage/StuManageEdit?id=' + encodeURIComponent(id);
+                },
+                redirectToDelete(id) {
+                    var confirmation = confirm("你确认要删除该记录吗？")
+                    if (confirmation) {
+                        window.location.href = '/StuManage/StuManageDelete?id=' + encodeURIComponent(id);
+                    }
+                }
+            }
+        })
+        function redirectToAdd() {
+            window.location.href = '/StuManage/StuManageAdd'
+        }
+    </script>*@
+
+

@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "StaffMGEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Content/Content-FrontModel03/jsvue001.js"></script>
+<script src="~/Content/Content-FrontModel03/jsvue002.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<div id="app">
+    <div class="col-sm-12 col-xl-12">
+        <div class="bg-light rounded h-100 p-4">
+            <h6 class="mb-4">员工信息修改</h6>
+            <form action="/StaffMG/StaffMGEdit" method="post">
+
+                <div v-for="(item,index) in list">
+                    <input hidden type="text" name="ID" v-model="item.ID" />
+                    <input hidden type="text" name="Type" v-model="item.Type"/>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPassword" name="Name" v-model="item.Name"
+                               placeholder="姓名">
+                        <label for="floatingPassword">姓名</label>
+                    </div>
+
+                    
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" name="BMID" v-model="item.BMID"
+                                aria-label="Floating label select example">
+                            <option selected>部门</option>
+                            @foreach (var item in Model as List<Corona_Virus_Disease.Models.Bmt>)
+                            {
+                                <option value="@item.BMID">@item.BMname</option>
+                            }
+                        </select>
+                        <label for="floatingSelect">部门</label>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">提交</button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<script>
+    
+    //定义一个函数，用来获取地址栏的参数
+    function getQueryString(name) {
+        //构造一个正则表达式对象，匹配name=后面的任意字符
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        //获取地址栏的字符串，并用正则表达式匹配
+        var r = window.location.search.substr(1).match(reg);
+        //如果匹配成功，返回对应的值，并用decodeURI解码，否则返回null
+        if (r != null) return decodeURI(r[2]);
+        return null;
+    }
+    var id = getQueryString("id");
+    var type = getQueryString("type")
+    var app = new Vue({
+        el: "#app",
+        data: {
+            list: [],
+        },
+        created: function () {
+            this.NoticeData();
+        },
+        methods: {
+            NoticeData: function () {
+                var vm = this;
+                console.log(id);
+                console.log(type);
+                axios.get('/StaffMG/StaffMGEditJson?id=' + encodeURIComponent(id) + "&type=" + encodeURIComponent(type))
+                    .then(function (response) {
+                        vm.list = response.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            }
+
+        }
+    })
+
+</script>
+
