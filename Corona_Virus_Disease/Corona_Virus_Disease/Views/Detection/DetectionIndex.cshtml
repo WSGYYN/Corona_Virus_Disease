@@ -48,8 +48,11 @@
                             <td class=" hidden-phone">{{index+1}}</td>
                             <td class=" hidden-phone">{{item.StuName}}</td>
                             <td class=" hidden-phone">{{item.Classname}}</td>
-                            <td class="hidden-phone">101{{item.TName}}</td>
-                            <td class="hidden-phone">{{item.Dresult}}</td>
+                            <td class="hidden-phone">{{item.TName}}</td>
+                            <td class="hidden-phone">
+                                <div style="color:green" v-if="item.Dresult=='阴性'">阴性</div>
+                                <div style="color:red" v-if="item.Dresult=='阳性'">阳性</div>
+                            </td>
                             <td class="hidden-phone">{{item.Dtime|formatDate}}</td>
                         </tr>
 

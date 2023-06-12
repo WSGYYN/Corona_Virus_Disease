@@ -58,8 +58,8 @@
                             </td>
                             <td class="hidden-phone">{{item.Lview}}</td>
                             <td class="hidden-phone">
-                                <div v-if="item.VState==0">待批准</div>
-                                <div v-if="item.VState==1">批准</div>
+                                <div style="color:red" v-if="item.VState==0">待批准</div>
+                                <div style="color:green" v-if="item.VState==1">批准</div>
                             </td>
                             <td class="hidden-phone">{{item.TName}}</td>
 
